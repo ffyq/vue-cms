@@ -6,7 +6,7 @@
     <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button>
     <ul v-for="(item, i) in comments" :key="item.add_time">
       <li class="head">第{{i+1}}楼&nbsp;&nbsp;用户: 匿名用户&nbsp;&nbsp;发表时间:{{item.add_time | dateFormat}}</li>
-      <li class="body">{{ item.content==='undefined'?'此用户暂无评论':item.content||'此用户暂无评论' }}</li>
+      <li class="body">{{ item.content==='undefined'?'此用户暂无评论':item.content.trim()||'此用户暂无评论' }}</li>
     </ul>
     <mt-button type="primary" size="large" @click="getMore" plain>加载更多</mt-button>
   </div>

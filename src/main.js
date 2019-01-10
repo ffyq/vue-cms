@@ -15,19 +15,20 @@ import 'mint-ui/lib/style.css'
 // 导入日期格式化插件
 import moment from 'moment'
 
-Vue.filter('dateFormat', function (time,format="YYYY-MM-DD HH:mm:ss") {
+// 全局日期过滤器，用于格式化日期
+Vue.filter('dateFormat', function (time, format = "YYYY-MM-DD HH:mm:ss") {
   return moment(time).format(format);
 })
 
+// 安装路由功能
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
+import router from './router'
 
 // Vue 要实现异步加载需要使用到 vue-resource 库。
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 Vue.http.options.root = 'http://www.liulongbin.top:3005';
-
-import router from './router'
 
 import app from './app.vue'
 
@@ -40,13 +41,13 @@ import './lib/mui/css/mui.css'
 import './lib/mui/css/icons-extra.css'
 
 var vm = new Vue({
-  el:'#app',
-  data:{
+  el: '#app',
+  data: {
 
   },
-  methods:{
+  methods: {
 
   },
-  render:c=>c(app),
+  render: c => c(app),
   router
 })
