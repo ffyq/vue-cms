@@ -1,5 +1,5 @@
 <template>
-  <div>4</div>
+  <h2>搜索模块</h2>
 </template>
 <script>
 export default {

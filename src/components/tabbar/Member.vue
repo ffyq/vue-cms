@@ -1,5 +1,5 @@
 <template>
-  <div>2</div>
+  <h2>会员模块</h2>
 </template>
 <script>
 export default {

@@ -21,7 +21,7 @@
         </div>
         <div class="bottom">
           <mt-button type="primary" size="small">立即购买</mt-button>
-          <mt-button type="danger" size="small">加入购物车</mt-button>
+          <mt-button type="danger" size="small" @click="addToCart">加入购物车</mt-button>
         </div>
       </div>
     </div>
@@ -51,7 +51,7 @@ export default {
       id: this.$route.params.id,
       productDetail: [],
       // 用户默认选中件数为1
-      selectedCount: 1
+      selectedCount: 1,
     };
   },
   created() {
@@ -79,8 +79,19 @@ export default {
     initNumBox() {
       mui(".mui-numbox").numbox();
     },
+    // 获取数字输入框选中的数量
     getCount(count) {
       this.selectedCount = count;
+    },
+    // 添加到购物车
+    addToCart() {
+      var productInfo = {
+        id: this.id,
+        count: this.selectedCount,
+        price: this.productDetail.sell_price,
+        selected: false
+      };
+      this.$store.commit("addToCart", productInfo);
     }
   },
   components: {
