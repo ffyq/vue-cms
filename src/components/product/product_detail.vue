@@ -50,7 +50,7 @@ export default {
       id: this.$route.params.id,
       productDetail: [],
       // 用户默认选中件数为1
-      selectedCount: 1,
+      selectedCount: 1
     };
   },
   created() {
@@ -93,8 +93,8 @@ export default {
       this.$store.commit("addToCart", productInfo);
     },
     // 前往商品评论页面
-    goComments(id){
-      this.$router.push({ name: 'comments', params: { id: id }})
+    goComments(id) {
+      this.$router.push({ name: "comments", params: { id: id } });
     }
   },
   components: {
@@ -110,6 +110,7 @@ export default {
   .mui-card {
     margin-top: 0;
     .mui-card-content {
+      min-height: 230px;
       padding: 15px;
       .count {
         margin: 10px 0;

@@ -28,6 +28,10 @@ var router = new VueRouter({
     { path: '/home/product_detail/:id', component: product_detail, name: 'product_detail' },
     { path: '/home/product_comments/:id', component: product_comments, name: 'comments' },
   ],
-  linkActiveClass: 'mui-active'
+  linkActiveClass: 'mui-active',
+  // 滚动行为，解决路由切换时页面显示在底部问题
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
 export default router
