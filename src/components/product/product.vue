@@ -47,7 +47,7 @@ export default {
     },
     // 通过js实现路由跳转
     goDetail(id) {
-      this.$router.push({ name: "productDetail", params: { id: id } });
+      this.$router.push({ name: "product_detail", params: { id: id } });
     }
   }
 };

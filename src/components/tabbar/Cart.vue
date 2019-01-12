@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="mui-card" v-for="item in cartGoods" :key="item.id">
+    <div class="mui-card" v-for="(item,i) in cartGoods" :key="item.id">
       <div class="mui-card-content">
         <mt-switch
           v-model="$store.getters.getSelectedStatus[item.id]"
@@ -13,7 +13,7 @@
             <span class="red">&yen;{{item.sell_price}}</span>
             <!-- 将数量值传递给子组件 -->
             <numbox :everyNum="$store.getters.getEveryNum[item.id]" :id="item.id"></numbox>
-            <a href="#">删除</a>
+            <a href="#" @click.prevent="del(item.id,i)">删除</a>
           </p>
         </div>
       </div>
@@ -59,8 +59,13 @@ export default {
           this.cartGoods = result.body.message;
         });
     },
+    // 修改购物车商品选中状态
     selectedStatus(id) {
       this.$store.commit("modifySelected", id);
+    },
+    del(id, i) {
+      this.cartGoods.splice(i, 1);
+      this.$store.commit("del", id);
     }
   },
   components: {

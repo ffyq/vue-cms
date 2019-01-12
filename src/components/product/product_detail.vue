@@ -34,8 +34,7 @@
         <p>上架时间 : {{productDetail.add_time | dateFormat}}</p>
       </div>
       <div class="mui-card-footer">
-        <mt-button type="primary" size="large" plain>图文介绍</mt-button>
-        <mt-button type="danger" size="large" plain>商品评论</mt-button>
+        <mt-button type="danger" size="large" plain @click="goComments($route.params.id)">商品评论</mt-button>
       </div>
     </div>
   </div>
@@ -92,6 +91,10 @@ export default {
         selected: false
       };
       this.$store.commit("addToCart", productInfo);
+    },
+    // 前往商品评论页面
+    goComments(id){
+      this.$router.push({ name: 'comments', params: { id: id }})
     }
   },
   components: {

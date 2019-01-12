@@ -10,7 +10,8 @@ import newsinfo from './components/news/newsinfo.vue'
 import photos from './components/photos/photos.vue'
 import photoinfo from './components/photos/photoinfo.vue'
 import product from './components/product/product.vue'
-import productDetail from './components/product/productDetail.vue'
+import product_detail from './components/product/product_detail.vue'
+import product_comments from './components/product/product_comments.vue'
 
 var router = new VueRouter({
   routes: [
@@ -24,7 +25,8 @@ var router = new VueRouter({
     { path: '/home/photos', component: photos },
     { path: '/home/photoinfo/:id', component: photoinfo },
     { path: '/home/product', component: product },
-    { path: '/home/productDetail/:id', component: productDetail, name: 'productDetail' },
+    { path: '/home/product_detail/:id', component: product_detail, name: 'product_detail' },
+    { path: '/home/product_comments/:id', component: product_comments, name: 'comments' },
   ],
   linkActiveClass: 'mui-active'
 })

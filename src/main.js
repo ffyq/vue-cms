@@ -49,6 +49,14 @@ const store = new Vuex.Store({
         }
       })
       localStorage.setItem('car', JSON.stringify(cart))
+    },
+    // 购物车删除功能
+    del(state, id) {
+      var index = state.cart.findIndex(item => {
+        return item.id === id
+      })
+      state.cart.splice(index, 1)
+      localStorage.setItem('car', JSON.stringify(cart))
     }
   },
   getters: {// this.$store.getters.***
@@ -82,17 +90,17 @@ const store = new Vuex.Store({
       state.cart.forEach(item => {
         if (item.selected === true) {
           count += item.count
-        }     
+        }
       })
       return count
     },
     // 获取选中件数的总价
-    getSelectedPrice(state){
+    getSelectedPrice(state) {
       var price = 0
       state.cart.forEach(item => {
         if (item.selected === true) {
           price += item.price * item.count
-        }     
+        }
       })
       return price
     }

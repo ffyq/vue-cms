@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <mt-header fixed title="Vue商城"></mt-header>
+    <mt-header fixed title="Vue商城">
+      <a slot="left" @click.prevent="$router.go(-1)" v-show="flag">
+        <mt-button icon="back">返回</mt-button>
+      </a>
+    </mt-header>
     <transition>
       <router-view></router-view>
     </transition>
@@ -29,7 +33,24 @@
 </template>
 <script>
 export default {
-
+  data(){
+    return {
+      flag:false
+    }
+  },
+  created(){
+    // 在非首页，刷新回退按钮会消失
+    this.flag = this.$route.path === '/home' ? 'false' :'true'
+  },
+  watch:{
+    "$route.path":function(newvalue){
+      if(newvalue === "/home"){
+        this.flag = false
+      }else{
+        this.flag = true
+      }
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

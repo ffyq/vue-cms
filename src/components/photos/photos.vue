@@ -41,6 +41,7 @@ export default {
   },
   created() {
     this.getPhotoCate();
+    // 参数0 获取所有图片
     this.getPhotoList(0);
   },
   mounted() {
