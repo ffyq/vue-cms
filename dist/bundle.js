@@ -32780,7 +32780,7 @@ exports.default = {
   },
   created: function created() {
     // 在非首页，刷新回退按钮会消失
-    this.flag = this.$route.path === '/home' ? 'false' : 'true';
+    this.flag = this.$route.path === '/home' ? false : true;
   },
 
   watch: {
